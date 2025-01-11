@@ -65,7 +65,7 @@ button:hover{
 </head>
 <body>
 <div class="container">
-<h1>Rock Paper Scissors</h1>
+<h1>ホロライブじゃんけん王</h1>
 
 <button onclick="play('rock')"><span class="emoji">✊</span><br>Rock</button>
 <button onclick="play('paper')"><span class="emoji">✋</span><br>Paper</button>
@@ -95,7 +95,7 @@ document.getElementById('opponent').textContent = `Opponent: ${currentOpponent}`
 const loseImages = [];
 for (let i = 0; i < 14; i++) {
     loseImages[i] = new Image();
-    loseImages[i].src = `lose${i + 1}.jpeg`;
+    loseImages[i].src = `lose${i + 1}.png`;
 }
 const congratsImage = new Image();
 congratsImage.src = "congrats.png";

@@ -1,209 +1,186 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Songti TC'; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s3 {font: 12.0px 'Zapf Dingbats'; font-kerning: none}
-    span.s4 {font: 12.0px Times; font-kerning: none}
-    span.s5 {font: 12.0px 'Songti TC'; font-kerning: none}
-    span.s6 {font: 12.0px 'Hiragino Mincho ProN'; font-kerning: none}
-  </style>
+<title>Rock Paper Scissors</title>
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-image: url("background.png"); /* Using PNG */
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 20px;
+}
+
+button {
+  padding: 15px 32px;
+  margin: 5px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover{
+    background-color: #45a049;
+}
+.emoji{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+#result {
+  font-size: 20px;
+  margin-top: 20px;
+}
+#outcome-image {
+    margin-top: 20px;
+}
+#outcome-image img {
+    max-width: 200px;
+    max-height: 200px;
+}
+#win-streak {
+    font-size: 18px;
+    margin-top: 10px;
+}
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;title&gt;Rock Paper Scissors&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">&lt;style&gt;</span></p>
-<p class="p1"><span class="s1">body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family: sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-image: url("background.png"); /* Using PNG */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-size: cover;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-repeat: no-repeat;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>min-height: 100vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>align-items: center;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">.container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-color: rgba(0, 0, 0, 0.5);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>max-width: 600px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin: 20px;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding: 15px 32px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size: 16px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-color: #4CAF50;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display: inline-block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">button:hover{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background-color: #45a049;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.emoji{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 24px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-bottom: 5px;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">#result {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin-top: 20px;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">#outcome-image {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-top: 20px;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">#outcome-image img {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-width: 200px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>max-height: 200px;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">#win-streak {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>font-size: 18px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin-top: 10px;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div class="container"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;h1&gt;ホロライブじゃんけん王&lt;/h1&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;button onclick="play('rock')"&gt;&lt;span class="emoji"&gt;</span><span class="s2">✊</span><span class="s1">&lt;/span&gt;&lt;br&gt;Rock&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">&lt;button onclick="play('paper')"&gt;&lt;span class="emoji"&gt;</span><span class="s2">✋</span><span class="s1">&lt;/span&gt;&lt;br&gt;Paper&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1">&lt;button onclick="play('scissors')"&gt;&lt;span class="emoji"&gt;</span><span class="s3">✌</span><span class="s1">&lt;/span&gt;&lt;br&gt;Scissors&lt;/button&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;div id="result"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="score"&gt;You: 0 | Computer: 0&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="opponent"&gt;Opponent: &lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="win-streak"&gt;Win Streak: 0&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="outcome-image"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script&gt;</span></p>
-<p class="p1"><span class="s1">let userScore = 0;</span></p>
-<p class="p1"><span class="s1">let computerScore = 0;</span></p>
-<p class="p1"><span class="s1">let winStreak = 0;</span></p>
-<p class="p1"><span class="s1">const opponents = [</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span>"</span><span class="s1">大空スバル</span><span class="s4">", "</span><span class="s1">轟はじめ</span><span class="s4">", "</span><span class="s1">沙花叉クロヱ</span><span class="s4">", "</span><span class="s1">宝鐘マリン</span><span class="s4">", "</span><span class="s1">猫又おかゆ</span><span class="s4">",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"</span><span class="s5">紫咲シオン</span><span class="s1">", "</span><span class="s5">桃鈴ねね</span><span class="s1">", "</span><span class="s5">姫森ルーナ</span><span class="s1">", "</span><span class="s5">フワワ</span><span class="s6">・アビスガード</span><span class="s1">", "</span><span class="s5">戌神ころね</span><span class="s1">",</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span>"</span><span class="s1">角巻わため</span><span class="s4">", "</span><span class="s1">百鬼あやめ</span><span class="s4">", "</span><span class="s1">大神ミオ</span><span class="s4">", "</span><span class="s1">兎田ぺこら</span><span class="s4">"</span></p>
-<p class="p1"><span class="s1">];</span></p>
-<p class="p1"><span class="s1">let currentOpponentIndex = 0;</span></p>
-<p class="p1"><span class="s1">let currentOpponent = opponents[currentOpponentIndex];</span></p>
-<p class="p1"><span class="s1">document.getElementById('opponent').textContent = `Opponent: ${currentOpponent}`;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">// Preload Images</span></p>
-<p class="p1"><span class="s1">const loseImages = [];</span></p>
-<p class="p1"><span class="s1">for (let i = 0; i &lt; 14; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>loseImages[i] = new Image();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>loseImages[i].src = `lose${i + 1}.jpeg`;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">const congratsImage = new Image();</span></p>
-<p class="p1"><span class="s1">congratsImage.src = "congrats.png";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function play(userChoice) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const choices = ['rock', 'paper', 'scissors'];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const computerChoice = choices[Math.floor(Math.random() * 3)];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>let result = determineWinner(userChoice, computerChoice);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>updateScore(result);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>displayResult(userChoice, computerChoice, result);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>showOutcomeImage(result);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(result == "You win!"){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>winStreak++;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>currentOpponentIndex = (currentOpponentIndex + 1) % 14;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>currentOpponent = opponents[currentOpponentIndex];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('opponent').textContent = `Opponent: ${currentOpponent}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('win-streak').textContent = `Win Streak: ${winStreak}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (winStreak === 14) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>showCongrats();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>else{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>winStreak = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('win-streak').textContent = `Win Streak: ${winStreak}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function determineWinner(user, computer) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (user === computer) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return "It's a tie!";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} else if (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>(user === 'rock' &amp;&amp; computer === 'scissors') ||</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>(user === 'paper' &amp;&amp; computer === 'rock') ||</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>(user === 'scissors' &amp;&amp; computer === 'paper')</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return "You win!";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return "You lose!";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function displayResult(user, computer, result) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const resultDiv = document.getElementById('result');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>resultDiv.textContent = `You chose ${user}. Computer chose ${computer}. ${result}`;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function updateScore(result) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (result === "You win!") {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>userScore++;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>} else if (result === "You lose!") {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>computerScore++;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('score').textContent = `You: ${userScore} | Computer: ${computerScore}`;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function showOutcomeImage(result) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const outcomeImageDiv = document.getElementById('outcome-image');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>outcomeImageDiv.innerHTML = "";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (result === "You lose!") {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let img = document.createElement("img");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>img.src = loseImages[currentOpponentIndex].src;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>img.alt = `Lose Image ${currentOpponentIndex + 1}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>outcomeImageDiv.appendChild(img);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">function showCongrats() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const outcomeImageDiv = document.getElementById('outcome-image');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>outcomeImageDiv.innerHTML = "";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let img = document.createElement("img");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>img.src = congratsImage.src;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>img.alt = "Congratulations!";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>outcomeImageDiv.appendChild(img);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>currentOpponentIndex = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>currentOpponent = opponents[currentOpponentIndex];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('opponent').textContent = `Opponent: ${currentOpponent}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>userScore = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>computerScore = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>winStreak = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('win-streak').textContent = `Win Streak: ${winStreak}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('score').textContent = `You: ${userScore} | Computer: ${computerScore}`;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<div class="container">
+<h1>Rock Paper Scissors</h1>
+
+<button onclick="play('rock')"><span class="emoji">✊</span><br>Rock</button>
+<button onclick="play('paper')"><span class="emoji">✋</span><br>Paper</button>
+<button onclick="play('scissors')"><span class="emoji">✌</span><br>Scissors</button>
+
+<div id="result"></div>
+<div id="score">You: 0 | Computer: 0</div>
+<div id="opponent">Opponent: </div>
+<div id="win-streak">Win Streak: 0</div>
+<div id="outcome-image"></div>
+</div>
+
+<script>
+let userScore = 0;
+let computerScore = 0;
+let winStreak = 0;
+const opponents = [
+    "大空スバル", "轟はじめ", "沙花叉クロヱ", "宝鐘マリン", "猫又おかゆ",
+    "紫咲シオン", "桃鈴ねね", "姫森ルーナ", "フワワ・アビスガード", "戌神ころね",
+    "角巻わため", "百鬼あやめ", "大神ミオ", "兎田ぺこら"
+];
+let currentOpponentIndex = 0;
+let currentOpponent = opponents[currentOpponentIndex];
+document.getElementById('opponent').textContent = `Opponent: ${currentOpponent}`;
+
+// Preload Images
+const loseImages = [];
+for (let i = 0; i < 14; i++) {
+    loseImages[i] = new Image();
+    loseImages[i].src = `lose${i + 1}.jpeg`;
+}
+const congratsImage = new Image();
+congratsImage.src = "congrats.png";
+
+function play(userChoice) {
+  const choices = ['rock', 'paper', 'scissors'];
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+  let result = determineWinner(userChoice, computerChoice);
+  updateScore(result);
+  displayResult(userChoice, computerChoice, result);
+  showOutcomeImage(result);
+    if(result == "You win!"){
+        winStreak++;
+        currentOpponentIndex = (currentOpponentIndex + 1) % 14;
+        currentOpponent = opponents[currentOpponentIndex];
+        document.getElementById('opponent').textContent = `Opponent: ${currentOpponent}`;
+        document.getElementById('win-streak').textContent = `Win Streak: ${winStreak}`;
+        if (winStreak === 14) {
+            showCongrats();
+        }
+    }
+    else{
+        winStreak = 0;
+        document.getElementById('win-streak').textContent = `Win Streak: ${winStreak}`;
+    }
+}
+
+function determineWinner(user, computer) {
+    if (user === computer) {
+        return "It's a tie!";
+      } else if (
+        (user === 'rock' && computer === 'scissors') ||
+        (user === 'paper' && computer === 'rock') ||
+        (user === 'scissors' && computer === 'paper')
+      ) {
+        return "You win!";
+      } else {
+        return "You lose!";
+      }
+}
+
+function displayResult(user, computer, result) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.textContent = `You chose ${user}. Computer chose ${computer}. ${result}`;
+}
+
+function updateScore(result) {
+    if (result === "You win!") {
+        userScore++;
+    } else if (result === "You lose!") {
+        computerScore++;
+    }
+    document.getElementById('score').textContent = `You: ${userScore} | Computer: ${computerScore}`;
+}
+
+function showOutcomeImage(result) {
+    const outcomeImageDiv = document.getElementById('outcome-image');
+    outcomeImageDiv.innerHTML = "";
+
+    if (result === "You lose!") {
+        let img = document.createElement("img");
+        img.src = loseImages[currentOpponentIndex].src;
+        img.alt = `Lose Image ${currentOpponentIndex + 1}`;
+        outcomeImageDiv.appendChild(img);
+    }
+}
+
+function showCongrats() {
+    const outcomeImageDiv = document.getElementById('outcome-image');
+    outcomeImageDiv.innerHTML = "";
+    let img = document.createElement("img");
+    img.src = congratsImage.src;
+    img.alt = "Congratulations!";
+    outcomeImageDiv.appendChild(img);
+    currentOpponentIndex = 0;
+    currentOpponent = opponents[currentOpponentIndex];
+    document.getElementById('opponent').textContent = `Opponent: ${currentOpponent}`;
+    userScore = 0;
+    computerScore = 0;
+    winStreak = 0;
+    document.getElementById('win-streak').textContent = `Win Streak: ${winStreak}`;
+    document.getElementById('score').textContent = `You: ${userScore} | Computer: ${computerScore}`;
+}
+</script>
+
 </body>
 </html>
